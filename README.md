@@ -10,7 +10,7 @@
 git clone https://github.com/AFanSKyQs/QQGuild-Plugins.git ./plugins/QQGuild-Plugins/
 ```
 
-## 配置【`config/PrivateGuildConfig`】或【`config/PublicGuildConfig`】，`Private`为私域机器人,`Public`为公域：
+## 打开文件配置【`config/PrivateGuildConfig`】或【`config/PublicGuildConfig`】，`Private`为私域机器人,`Public`为公域：
 ```
 config/PrivateGuildConfig.json
 config/PublicGuildConfig.json
