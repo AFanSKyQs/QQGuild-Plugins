@@ -1,0 +1,29 @@
+ {
+  "eventType": "AT_MESSAGE_CREATE",
+  "eventId": "AT_MESSAGE_CREATE:879467c9-dce0-4381-b87f-5eddee8309b1",
+  "msg": {
+    "author": {
+      "avatar": "https://qqchannel-profile-1251316161.file.myqcloud.com/16580352695c179a6f9e05626f?t=1658035269",
+      "bot": false,
+      "id": "14459445138687374429",
+      "username": "FanSky_Qs"
+    },
+    "channel_id": "247214204",
+    "content": "<@!16607952377045830190> 123",
+    "guild_id": "4172100646442649925",
+    "id": "08c59291b3eeed91f33910fce0f075380f48d897b6a006",
+    "member": {
+      "joined_at": "2023-03-12T13:44:52+08:00",
+      "nick": "FanSky_Qs",
+      "roles": [
+        "Array"
+      ]
+    },
+    "mentions": [ [
+      "Object"
+    ] ],
+    "seq": 15,
+    "seq_in_channel": "15",
+    "timestamp": "2023-03-12T16:22:48+08:00"
+  }
+}
