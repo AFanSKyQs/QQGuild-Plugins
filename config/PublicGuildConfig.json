@@ -1,0 +1,6 @@
+{
+    "BotAppId": "你的BotAppId",
+    "token机器人令牌": "你的机器人令牌",
+    "intents监听事件": ["PUBLIC_GUILD_MESSAGES", "OPEN_FORUMS_EVENT", "DIRECT_MESSAGE", "GUILD_MESSAGE_REACTIONS", "GUILD_MEMBERS", "GUILDS"],
+    "sandbox沙箱模式": false
+}
