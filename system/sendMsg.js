@@ -15,7 +15,7 @@ async function sendMessage(channel_id, MsgBody, PrivateMsg, GuildType) {
     let client = await GuildClient(GuildType);
 
     const formData = new FormData();
-
+    console.log(MsgBody)
     for (const [key, value] of Object.entries(MsgBody)) {
         if (value) {
             if (key === "file_image") {
@@ -28,7 +28,7 @@ async function sendMessage(channel_id, MsgBody, PrivateMsg, GuildType) {
             }
         }
     }
-
+    console.log(formData)
     client.messageApi.postMessage(channel_id, formData).then(res => {
         console.log(res.data);
     }).catch(err => {

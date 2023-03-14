@@ -8,16 +8,16 @@ import ReturnConfig from "../config/LoadConfig.js";
  * @constructor
  */
 async function GuildClient(GuildType) {
-    if(GuildType === 'Private'){
-        console.log("GuildClient[私域]")
+    if (GuildType === 'Private') {
+        logger.info(logger.cyan("[加载完成][私域]"))
         return createOpenAPI(await ReturnConfig(GuildType));
-    }
-    if(GuildType === 'Public'){
-        console.log("GuildClient[公域]")
+    } else if (GuildType === 'Public') {
+        logger.info(logger.cyan("[加载完成][公域]"))
         return createOpenAPI(await ReturnConfig(GuildType));
+    } else {
+        logger.info(logger.red("[加载错误][没有指定公域或私域]"))
+        return "[加载错误][没有指定公域或私域]";
     }
-    console.log("GuildClient[没有指定公域或私域]")
-    return "GuildClient[没有指定公域或私域]";
 }
 
 export default GuildClient;

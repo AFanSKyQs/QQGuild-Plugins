@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 Bot.logger.info('-------------^_^--------------')
-Bot.logger.info(`----QQGuild-Plugins开始载入-----`)
+Bot.logger.info(`----QQGuild-Plugin开始载入-----`)
 Bot.logger.info(`----Author[0]：AFanSKyQs-----`)
 logger.warn(logger.yellow(`---指令：【#开启公域/私域机器人】------`))
 logger.warn(logger.yellow(`发送指令前请先在config/xxx.json中填入公域/私域机器人配置`))
@@ -23,7 +23,8 @@ for (let i in files) {
         const AMatchFan = AFanReaSon.match(ARegexFan);
         if (AMatchFan) {
             const APackageNameY = AMatchFan[1];
-            logger.warn(`请运行：${logger.red(`pnpm add ${APackageNameY} -w`)}安装依赖`)
+            // logger.warn(`请运行：${logger.red(`pnpm add ${APackageNameY} -w`)}安装依赖`)
+            logger.warn(`请在根目录或QQGuild-Plugins目录运行：${logger.red(`pnpm install`)}安装依赖`)
             APackageFanError++
         }else{
           logger.error(ret[i].reason)

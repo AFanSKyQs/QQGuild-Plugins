@@ -1,55 +1,42 @@
 import {createWebsocket} from 'qq-guild-bot';
 import ReturnConfig from "../config/LoadConfig.js";
-import sendMessage from "../system/sendMsg.js";
-
-
-async function StartPrivate() {
+import PluginsLoader from "../../../lib/plugins/loader.js"
+async function StartPrivate(e) {
     const GuildConfig = await ReturnConfig("Private");
     const ws = createWebsocket(GuildConfig);
 
+    const eventHandlers = {
+        READY: (data) => handleEvent('READY', data),
+        ERROR: (data) => handleEvent('ERROR', data),
+        GUILDS: (data) => handleEvent('GUILDS', data),
+        GUILD_MEMBERS: (data) => handleEvent('成员变化', data),
+        GUILD_MESSAGES: (data) => handleEvent('消息事件', data),
+        GUILD_MESSAGE_REACTIONS: (data) => handleEvent('消息表情事件', data),
+        DIRECT_MESSAGE: (data) => handleEvent('私信事件', data),
+        AUDIO_OR_LIVE_CHANNEL_MEMBER: (data) => handleEvent('用户进入/离开音频/直播频道', data),
+        INTERACTION: (data) => handleEvent('互动事件', data),
+        MESSAGE_AUDIT: (data) => handleEvent('消息审核', data),
+        FORUMS_EVENT: (data) => handleEvent('论坛事件', data),
+        AUDIO_ACTION: (data) => handleEvent('音频/麦', data),
+    }
+
+    async function handleEvent(eventName, eventData) {
+        if (eventName === "READY") {
+            logger.info(logger.cyan(`[私域][${eventData.msg.user.username}] 已上线`))
+            e.reply('【私域频道机器人】已启动监听，当前版本仅控制台监听效果，事件处理还在完善中...，欢迎加入开发，个人的时间精力是有限的呜呜ww..~')
+            return Promise.resolve();
+        }
+        logger.info(logger.cyan(`[私域][${eventName}]：`))
+        logger.info(logger.cyan(eventData))
+        return Promise.resolve();
+    }
+
     function registerEvents(ws) {
-        ws.on('READY', (wsdata) => {
-            console.log('[私域][READY]:', wsdata);
-        });
-        ws.on('ERROR', (data) => {
-            console.log('[私域][ERROR]:', data);
-        });
-        ws.on('GUILDS', (data) => {
-            console.log('[私域][GUILDS]:', data);
-        });
-        ws.on('GUILD_MEMBERS', (data) => {
-            console.log('[私域][成员变化]:', data);
-        });
-        ws.on('GUILD_MESSAGES', async (data) => {
-            console.log('[私域][消息事件]:', data);
-            // await PostMsgBody(data.msg.channel_id, {content: 'messageApi接口触发: ' + data.msg.content}, data.msg.direct_message, "Private")
-            await sendMessage(data.msg.channel_id, {content: 'messageApi接口触发: ' + data.msg.content}, data.msg.direct_message, "Private");
-        });
-        ws.on('GUILD_MESSAGE_REACTIONS', (data) => {
-            console.log('[私域][为消息[添加/删除]表情表态]:', data);
-        });
-        ws.on('DIRECT_MESSAGE', (data) => {
-            console.log('[私域][收到私信/撤回]:', data);
-        });
-        ws.on('AUDIO_OR_LIVE_CHANNEL_MEMBER', (data) => {
-            console.log('[私域][用户[进入/离开][视频/直播]子频道]:', data);
-        });
-        ws.on('INTERACTION', (data) => {
-            console.log('[私域][互动事件]:', data);
-        });
-        ws.on('MESSAGE_AUDIT', (data) => {
-            console.log('[私域][消息审核]:', data);
-        });
-        ws.on('FORUMS_EVENT', (data) => {
-            console.log('[私域][论坛事件]:', data);
-        });
-        ws.on('AUDIO_ACTION', (data) => {
-            console.log('[私域][音频/麦]:', data);
+        Object.entries(eventHandlers).forEach(([eventName, handler]) => {
+            ws.on(eventName, handler);
         });
     }
 
-    // 注册所有事件
     registerEvents(ws);
 }
-
 export default StartPrivate;

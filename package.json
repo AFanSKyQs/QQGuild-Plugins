@@ -1,0 +1,10 @@
+{
+  "name": "QQGuild-Plugins",
+  "author": "AFanSKyQs",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "QQ频道消息处理",
+  "dependencies": {
+    "qq-guild-bot": "*"
+  }
+}

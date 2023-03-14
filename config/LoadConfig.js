@@ -1,9 +1,9 @@
 import fs from "fs";
 
-// let PrivateGuildConfig = `E:/Bot_V3/yunzai/Yunzai-Bot/plugins/QQGuild-Plugin/config/PrivateGuildConfig.json`;
-// let PublicGuildConfig = `E:/Bot_V3/yunzai/Yunzai-Bot/plugins/QQGuild-Plugin/config/PublicGuildConfig.json`;
-let PublicGuildConfig = `${process.cwd()}/plugins/QQGuild-Plugin/config/PublicGuildConfig.json`;
-let PrivateGuildConfig = `${process.cwd()}/plugins/QQGuild-Plugin/config/PrivateGuildConfig.json`;
+// let PrivateGuildConfig = `E:/Bot_V3/yunzai/Yunzai-Bot/plugins/QQGuild-Plugins/config/PrivateGuildConfig.json`;
+// let PublicGuildConfig = `E:/Bot_V3/yunzai/Yunzai-Bot/plugins/QQGuild-Plugins/config/PublicGuildConfig.json`;
+let PublicGuildConfig = `${process.cwd()}/plugins/QQGuild-Plugins/config/PublicGuildConfig.json`;
+let PrivateGuildConfig = `${process.cwd()}/plugins/QQGuild-Plugins/config/PrivateGuildConfig.json`;
 
 /**
  * 返回配置文件
