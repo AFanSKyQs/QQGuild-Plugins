@@ -28,6 +28,7 @@ async function StartPrivate(e) {
         }
         logger.info(logger.cyan(`[私域][${eventName}]：`))
         logger.info(logger.cyan(eventData))
+        console.log(eventData)
         return Promise.resolve();
     }
 
