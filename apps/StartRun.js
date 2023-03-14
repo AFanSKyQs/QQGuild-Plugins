@@ -46,14 +46,14 @@ export class StartRun extends plugin {
         if (type === "Public") {
             let Public = JSON.parse(fs.readFileSync(publicURL));
             if (Public["token机器人令牌"] === "你的机器人令牌") {
-                e.reply("请先配置[公域]机器人令牌")
+                e.reply("请先在 QQGuild-Plugins/config/config/PublicGuildConfig.json 配置[公域]机器人ID与令牌")
                 return false
             }
         }
         if (type === "Private") {
             let Private = JSON.parse(fs.readFileSync(privateURL));
             if (Private["token机器人令牌"] === "你的机器人令牌") {
-                e.reply("请先配置[私域]机器人令牌")
+                e.reply("请先打开 QQGuild-Plugins/config/config/PrivateGuildConfig.json 配置[私域]机器人ID与令牌")
                 return false
             }
         }
