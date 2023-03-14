@@ -1,5 +1,5 @@
 //发送消息模块
-import GuildClient from "../client/client.js";
+import GuildClient from "./client/client.js";
 import fs from "fs";
 import buffer from "node:buffer";
 import path from "node:path";
